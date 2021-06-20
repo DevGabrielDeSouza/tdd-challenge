@@ -1,0 +1,32 @@
+{
+	"name": "tdd-challenge",
+	"version": "0.0.1",
+	"description": "An TDD project challenge for Noesis.",
+	"main": "index.js",
+	"scripts": {
+		"test": "test",
+		"e2e": "cypress open"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/DevGabrielDeSouza/tdd-challenge.git"
+	},
+	"keywords": [
+		"TDD",
+		"challenge",
+		"Noesis"
+	],
+	"author": "Gabriel de Souza",
+	"license": "ISC",
+	"bugs": {
+		"url": "https://github.com/DevGabrielDeSouza/tdd-challenge/issues"
+	},
+	"homepage": "https://github.com/DevGabrielDeSouza/tdd-challenge#readme",
+	"devDependencies": {
+		"cypress": "^7.5.0",
+		"cypress-cucumber-preprocessor": "^4.1.2"
+	},
+	"cypress-cucumber-preprocessor": {
+		"nonGlobalStepDefinitions": true
+	}
+}
