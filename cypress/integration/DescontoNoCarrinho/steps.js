@@ -9,8 +9,9 @@ Given(/^que o carrinho está vazio$/, () => {
 	expect(Store.cart).to.be.empty;
 });
 
-Given(/^que adicionam uma unidade do filme "([^"]*)" no carrinho$/, (nomeDoFilme) => {
-	Store.addMovieNameToCart(nomeDoFilme);
+Given(/^que adicionam mais uma unidade do filme com Id "([^"]*)" no carrinho$/, (idDoFilme) => {
+	Store.addMovieByIdToCart(idDoFilme);
+	expect(Store.cart).to.contains(parseInt(idDoFilme));
 });
 
 When(/^o lojista checa o desconto que pode conceder$/, () => {
