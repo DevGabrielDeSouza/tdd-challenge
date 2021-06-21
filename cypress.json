@@ -1,4 +1,5 @@
 {
-	"chromeWebSecurity": false,
-	"testFiles": "**/*.feature"
+  "chromeWebSecurity": false,
+  "testFiles": "**/*.feature",
+  "projectId": "tc7y9g"
 }

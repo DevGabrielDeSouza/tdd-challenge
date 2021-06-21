@@ -81,15 +81,7 @@ module.exports = class Store{
 		Store.cart = [];
 	}
 
-	static addMovieNameToCart(movieName){
-		filmes.find(function(item){
-			if(item.name == movieName){
-				Store.cart.push(item.id);
-			}
-		});
-	}
-
-	static addMovieIdToCart(movieId){
+	static addMovieByIdToCart(movieId){
 		filmes.find(function(item){
 			if(item.id == movieId){
 				Store.cart.push(item.id);
