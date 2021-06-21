@@ -1,12 +1,15 @@
 /// <reference types="cypress" />
 import { Given, When, Then, And } from "cypress-cucumber-preprocessor/steps";
 
+import Store from "../../../index"
+
+
 Given(/^que o carrinho está vazio$/, () => {
-	return true;
+	Store.resetCart();
 });
 
 Given(/^que adicionam uma unidade do filme "([^"]*)" no carrinho$/, (nomeDoFilme) => {
-	return true;
+	Store.addMovieNameToCart(nomeDoFilme);
 });
 
 When(/^o lojista checa o desconto que pode conceder$/, () => {

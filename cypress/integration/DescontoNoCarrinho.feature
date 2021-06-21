@@ -10,7 +10,7 @@ Feature: Conceder desconto no carrinho
 		Then o desconto deve ser de "10%"
 
 	Scenario: Compra acima de R$ 100 e abaixo de R$ 200 com filme de ação
-		And que adicionam uma unidade do filme "Velozes e Furiosos 7" no carrinho
+		Given que adicionam uma unidade do filme "Velozes e Furiosos 7" no carrinho
 		And que adicionam uma unidade do filme "As Branquelas" no carrinho
 		When o lojista checa o desconto que pode conceder
 		Then o desconto deve ser de "15%"
