@@ -88,4 +88,53 @@ module.exports = class Store{
 			}
 		});
 	}
+
+	static getCartInfo(){
+		let price = 0;
+		let discount = 0;
+		let additionalDiscount = 0;
+
+		let discountBonusRulesToCheck = discountGenreRules.map(object => ({...object}));
+
+		//#region Percorre e processa filmes do carrinho
+		for(const cartItem of Store.cart){
+			//Percorre filmes da base de dados 
+			filmes.find(function(storeItemInfo){
+				//Adiciona preço e desconto do filme quando encontrado
+				if(cartItem == storeItemInfo.id){
+					price += storeItemInfo.price;
+
+					//#region Checa se o gênero do filme dá direito a desconto adicional (Ação) 
+					let currentRuleIndex = 0;
+					discountBonusRulesToCheck.find(function(currentBonusRule){
+						if(currentBonusRule == undefined) return;
+
+						if(storeItemInfo.genre == currentBonusRule.genre){
+							additionalDiscount += currentBonusRule.discount;
+							discountBonusRulesToCheck.splice(currentRuleIndex, 1);
+							return;
+						}
+						currentRuleIndex++;
+					});
+					//#endregion
+
+					return;
+				}
+			});
+		}
+		//#endregion
+
+		discountPriceRules.find(function(priceRuleToCheck){
+			if(price > priceRuleToCheck.min && price < priceRuleToCheck.max){
+				discount += priceRuleToCheck.discount;
+			}
+		});
+
+		if(discount > 0) discount += additionalDiscount;
+
+		return {
+			"price": price,
+			"discount": discount
+		};
+	}
 }

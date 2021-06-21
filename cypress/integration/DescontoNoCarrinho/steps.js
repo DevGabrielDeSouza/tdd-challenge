@@ -18,6 +18,6 @@ When(/^o lojista checa o desconto que pode conceder$/, () => {
 	return true;
 });
 
-Then(/^o desconto deve ser de "([^"]*)"$/, (args1) => {
-	return true;
+Then(/^o desconto deve ser de "([^"]*)"%$/, (expectedDiscount) => {
+	expect(Store.getCartInfo().discount).to.be.equal(parseInt(expectedDiscount));
 });
