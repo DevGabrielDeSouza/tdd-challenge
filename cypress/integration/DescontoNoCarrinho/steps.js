@@ -6,6 +6,7 @@ import Store from "../../../index"
 
 Given(/^que o carrinho está vazio$/, () => {
 	Store.resetCart();
+	expect(Store.cart).to.be.empty;
 });
 
 Given(/^que adicionam uma unidade do filme "([^"]*)" no carrinho$/, (nomeDoFilme) => {
