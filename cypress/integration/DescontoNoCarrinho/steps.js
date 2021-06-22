@@ -1,7 +1,7 @@
 /// <reference types="cypress" />
 import { Given, When, Then, And } from "cypress-cucumber-preprocessor/steps";
 
-import Store from "../../../index"
+import Store from "../../../instrumented/index"
 
 
 Given(/^que o carrinho está vazio$/, () => {
