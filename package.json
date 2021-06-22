@@ -4,8 +4,15 @@
 	"description": "An TDD project challenge for Noesis.",
 	"main": "index.js",
 	"scripts": {
-		"test": "test",
-		"e2e": "cypress open"
+		"test": "cypress run",
+		"test-ci": "npx cypress run --record --key 78873b1f-043e-423c-bc8c-d1b1d4046c95",
+		"test-chrome": "cypress run --browser chrome",
+		"test-chrome-ci": "npx cypress run --browser chrome --record --key 78873b1f-043e-423c-bc8c-d1b1d4046c95",
+		"test-edge": "cypress run --browser edge",
+		"test-edge-ci": "npx cypress run --browser edge --record --key 78873b1f-043e-423c-bc8c-d1b1d4046c95",
+		"test-firefox": "cypress run --browser firefox",
+		"test-firefox-ci": "npx cypress run --browser firefox --record --key 78873b1f-043e-423c-bc8c-d1b1d4046c95",
+		"cypress-ide": "cypress open"
 	},
 	"repository": {
 		"type": "git",
